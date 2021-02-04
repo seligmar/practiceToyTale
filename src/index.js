@@ -1,8 +1,10 @@
 let addToy = false
+const addBtn = document.querySelector('#new-toy-btn')
+const toyFormContainer = document.querySelector('.container')
+var addToyButton = document.querySelector('#create-toy-button')
+addToyButton.addEventListener('click', createNewToy)
 
 document.addEventListener('DOMContentLoaded', () => {
-  const addBtn = document.querySelector('#new-toy-btn')
-  const toyFormContainer = document.querySelector('.container')
   addBtn.addEventListener('click', () => {
     // hide & seek with the form
     addToy = !addToy
@@ -73,4 +75,8 @@ function addLike () {
 
 function updateDom (element, likesCount) {
   element.innerHTML = likesCount + ' Likes'
+}
+
+function createNewToy () {
+  console.log('clikc?')
 }
