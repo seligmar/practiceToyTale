@@ -47,6 +47,18 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -210
+    },
+    {
+      "name": "Bob",
+      "image": "\"https://images-na.ssl-images-amazon.com/images/I/61Q3S4PV1PL._SX342_.jpg\"",
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "name": "Bob",
+      "image": "https://www.rainforest-alliance.org/sites/default/files/styles/750w_585h/public/2016-09/three-toed-sloth.jpg?itok=uWF-NdZZ",
+      "likes": 5,
+      "id": 10
     }
   ]
 }
