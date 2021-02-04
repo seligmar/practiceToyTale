@@ -2,7 +2,7 @@ let addToy = false
 const addBtn = document.querySelector('#new-toy-btn')
 const toyFormContainer = document.querySelector('.container')
 var addToyButton = document.querySelector('#create-toy-button')
-addToyButton.addEventListener('click', createNewToy)
+addToyButton.addEventListener('click', checkInputs)
 
 document.addEventListener('DOMContentLoaded', () => {
   addBtn.addEventListener('click', () => {
@@ -77,6 +77,35 @@ function updateDom (element, likesCount) {
   element.innerHTML = likesCount + ' Likes'
 }
 
-function createNewToy () {
-  console.log('clikc?')
+function checkInputs () {
+  var newName = document.querySelector('#newName').value
+  var newImg = document.querySelector('#newImg').value
+  if (newName.length < 1 || newImg.length < 1) {
+    window.alert('please complete the form')
+  } else createNewToy(newName, newImg)
+}
+
+function createNewToy (newName, newImg) {
+  var newToy = {}
+  newToy.name = newName
+  newToy.image = newImg
+  newToy.likes = 0
+  postNewToy(newToy)
+}
+
+function postNewToy (toy) {
+  var url = 'http://localhost:3000/toys/'
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({
+      name: toy.name,
+      image: toy.image,
+      likes: toy.likes
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    referrer: 'no-referrer'
+  }).then(buildToyCards(toy))
 }
